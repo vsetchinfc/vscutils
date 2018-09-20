@@ -23,7 +23,20 @@ namespace VSC.Utils
 
         public static string EnumToString(this Enum enumValue)
         {
-            return enumValue.GetEnumAttribute<EnumName>().Name;
+            string name = string.Empty;
+
+            EnumName enumName = enumValue.GetEnumAttribute<EnumName>();
+
+            if(enumName == null)
+            {
+                name = enumValue.ToString();
+            }
+            else
+            {
+                name = enumName.Name;
+            }
+
+            return name;
         }
     }
 }
