@@ -5,7 +5,7 @@ using VSC.Utils;
 
 namespace vscutils.tests
 {
-    public class UnitTest1
+    public class EnumExtensionsTester
     {
         public enum DBType
         {
@@ -16,6 +16,14 @@ namespace vscutils.tests
             [EnumName(Name = "PostgreSQL Database")]
             Postgres = 2,
             [EnumName(Name = "Oracle Database")]
+            Oracle = 3
+        }
+
+        public enum DBTypeNoAttr
+        {
+            None = 0,
+            MySql = 1,
+            Postgres = 2,
             Oracle = 3
         }
 
@@ -33,6 +41,22 @@ namespace vscutils.tests
 
             DBType oracleType = DBType.Oracle;
             Assert.Equal("Oracle Database", oracleType.EnumToString());
+        }
+
+        [Fact]
+        public void TestEnumWithNoAtribute()
+        {
+            DBTypeNoAttr noneType = DBTypeNoAttr.None;
+            Assert.Equal("None", noneType.EnumToString());
+
+            DBTypeNoAttr mySqlType = DBTypeNoAttr.MySql;
+            Assert.Equal("MySql", mySqlType.EnumToString());
+
+            DBTypeNoAttr postgresType = DBTypeNoAttr.Postgres;
+            Assert.Equal("Postgres", postgresType.EnumToString());
+
+            DBTypeNoAttr oracleType = DBTypeNoAttr.Oracle;
+            Assert.Equal("Oracle", oracleType.EnumToString());
         }
     }
 }
