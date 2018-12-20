@@ -47,16 +47,16 @@ namespace vscutils.tests
         public void TestEnumWithNoAtribute()
         {
             DBTypeNoAttr noneType = DBTypeNoAttr.None;
-            Assert.Equal("None", noneType.EnumToString());
+            Assert.Equal(noneType.ToString(), noneType.EnumToString());
 
             DBTypeNoAttr mySqlType = DBTypeNoAttr.MySql;
-            Assert.Equal("MySql", mySqlType.EnumToString());
+            Assert.Equal(mySqlType.ToString(), mySqlType.EnumToString());
 
             DBTypeNoAttr postgresType = DBTypeNoAttr.Postgres;
-            Assert.Equal("Postgres", postgresType.EnumToString());
+            Assert.Equal(postgresType.ToString(), postgresType.EnumToString());
 
             DBTypeNoAttr oracleType = DBTypeNoAttr.Oracle;
-            Assert.Equal("Oracle", oracleType.EnumToString());
+            Assert.Equal(oracleType.ToString(), oracleType.EnumToString());
         }
     }
 }
