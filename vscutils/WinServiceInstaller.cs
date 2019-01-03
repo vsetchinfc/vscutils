@@ -4,30 +4,45 @@ using System.Reflection;
 
 namespace VSC.Utils
 {
-    internal static class WinServiceInstaller
+    public static class WinServiceInstaller
     {
         private static string APP_EXECUTABLE_PATH = Assembly.GetExecutingAssembly().Location.Remove(Assembly.GetExecutingAssembly().Location.Length - 4) + ".exe";
         private const string ServiceControllerEXE = "sc.exe";
+
+        public delegate void WinServiceStatusHandler (string status);
+        public static event WinServiceStatusHandler WinServiceStatus;
 
         public static void Uninstall(string serviceName)
         {
             Stop(serviceName); // stop service before uninstall
 
-            Console.WriteLine("Uninstall Service");
+            RaiseWinServiceStatus("Uninstall Service");
 
             RunProcess("delete " + serviceName);
         }
 
         private static void Stop(string serviceName)
         {
-            Console.WriteLine("Stopping Service");
+            RaiseWinServiceStatus("Stopping Service");
+
             RunProcess("stop " + serviceName);            
         }
 
         public static void Install(string serviceName)
         {
+            RaiseWinServiceStatus("Install Service");
+
             string processArguments = string.Format("create {0} displayname=\"{1}\" binpath=\"{2}\"", serviceName, serviceName, APP_EXECUTABLE_PATH);
+            
             RunProcess(processArguments);
+        }
+
+        private static void RaiseWinServiceStatus(string status)
+        {
+            if(WinServiceStatus != null)
+            {
+                WinServiceStatus(status);
+            }
         }
 
         private static void RunProcess(string arguments)
