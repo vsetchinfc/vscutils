@@ -2,7 +2,7 @@ using System;
 using VSC.Utils;
 using Xunit;
 
-namespace VSC.Utils.Tests
+namespace VSC.Utils.Service.Tests
 {
     public class WinServiceInstallerTester
     {
@@ -14,7 +14,7 @@ namespace VSC.Utils.Tests
         [Fact]
         public void TestInstall()
         {
-            WinServiceInstaller.Install("Sampele Test Service");
+            WinServiceInstaller.Install("Sample Test Service");
         }
 
         private void PrintServiceStatus(string status)

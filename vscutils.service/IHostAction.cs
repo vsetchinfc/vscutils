@@ -1,6 +1,6 @@
 namespace VSC.Utils.Service
 {
-    public interface IArgsParser
+    public interface IHostAction
     {
          HostAction GetHostAction();
     }

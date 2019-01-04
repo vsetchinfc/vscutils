@@ -2,7 +2,7 @@ using System;
 using System.Diagnostics;
 using System.Reflection;
 
-namespace VSC.Utils
+namespace VSC.Utils.Service
 {
     public static class WinServiceInstaller
     {
