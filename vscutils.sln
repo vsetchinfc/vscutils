@@ -1,4 +1,4 @@
-﻿﻿
+﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
@@ -6,6 +6,8 @@ MinimumVisualStudioVersion = 15.0.26124.0
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vscutils", "vscutils\vscutils.csproj", "{7C649B7F-E430-4783-854B-F5A4BDDA408F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vscutils.tests", "vscutils.tests\vscutils.tests.csproj", "{B77FACF6-BA4F-4003-8E23-AEDE9D653099}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vscutils.service", "vscutils.service\vscutils.service.csproj", "{B35CDB51-7935-420B-9A1B-C7253D99B7F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,5 +46,17 @@ Global
 		{B77FACF6-BA4F-4003-8E23-AEDE9D653099}.Release|x64.Build.0 = Release|Any CPU
 		{B77FACF6-BA4F-4003-8E23-AEDE9D653099}.Release|x86.ActiveCfg = Release|Any CPU
 		{B77FACF6-BA4F-4003-8E23-AEDE9D653099}.Release|x86.Build.0 = Release|Any CPU
+		{B35CDB51-7935-420B-9A1B-C7253D99B7F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B35CDB51-7935-420B-9A1B-C7253D99B7F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B35CDB51-7935-420B-9A1B-C7253D99B7F8}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B35CDB51-7935-420B-9A1B-C7253D99B7F8}.Debug|x64.Build.0 = Debug|Any CPU
+		{B35CDB51-7935-420B-9A1B-C7253D99B7F8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B35CDB51-7935-420B-9A1B-C7253D99B7F8}.Debug|x86.Build.0 = Debug|Any CPU
+		{B35CDB51-7935-420B-9A1B-C7253D99B7F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B35CDB51-7935-420B-9A1B-C7253D99B7F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B35CDB51-7935-420B-9A1B-C7253D99B7F8}.Release|x64.ActiveCfg = Release|Any CPU
+		{B35CDB51-7935-420B-9A1B-C7253D99B7F8}.Release|x64.Build.0 = Release|Any CPU
+		{B35CDB51-7935-420B-9A1B-C7253D99B7F8}.Release|x86.ActiveCfg = Release|Any CPU
+		{B35CDB51-7935-420B-9A1B-C7253D99B7F8}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
