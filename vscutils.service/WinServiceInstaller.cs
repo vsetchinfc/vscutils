@@ -6,7 +6,9 @@ namespace VSC.Utils.Service
 {
     public static class WinServiceInstaller
     {
-        private static string APP_EXECUTABLE_PATH = Assembly.GetExecutingAssembly().Location.Remove(Assembly.GetExecutingAssembly().Location.Length - 4) + ".exe";
+        private static NLog.Logger _logger = NLog.LogManager.GetCurrentClassLogger();
+
+        public static string APP_EXECUTABLE_PATH = string.Empty;
         private const string ServiceControllerEXE = "sc.exe";
 
         public delegate void WinServiceStatusHandler (string status);
@@ -18,23 +20,30 @@ namespace VSC.Utils.Service
 
             RaiseWinServiceStatus("Uninstall Service");
 
-            RunProcess("delete " + serviceName);
+            RunProcess(string.Format("delete \"{0}\"", serviceName));
         }
 
         private static void Stop(string serviceName)
         {
             RaiseWinServiceStatus("Stopping Service");
 
-            RunProcess("stop " + serviceName);            
+            RunProcess(string.Format("stop \"{0}\"", serviceName));            
         }
 
         public static void Install(string serviceName)
         {
-            RaiseWinServiceStatus("Install Service");
+            if(!string.IsNullOrEmpty(APP_EXECUTABLE_PATH))
+            {
+                RaiseWinServiceStatus("Install Service");
 
-            string processArguments = string.Format("create {0} displayname=\"{1}\" binpath=\"{2}\"", serviceName, serviceName, APP_EXECUTABLE_PATH);
-            
-            RunProcess(processArguments);
+                string processArguments = string.Format("create \"{0}\" displayname= \"{1}\" binpath= \"{2}\"", serviceName, serviceName, APP_EXECUTABLE_PATH);
+                
+                RunProcess(processArguments);
+            }
+            else
+            {
+                _logger.Error("Cannot install service. Path to exe cannot be empty.");
+            }
         }
 
         private static void RaiseWinServiceStatus(string status)
@@ -47,6 +56,8 @@ namespace VSC.Utils.Service
 
         private static void RunProcess(string arguments)
         {
+            _logger.Trace("Arguments: " + arguments);
+
             var process = new Process();
             var processInfo = new ProcessStartInfo();
             processInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
