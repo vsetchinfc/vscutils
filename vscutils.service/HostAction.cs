@@ -7,6 +7,7 @@ namespace VSC.Utils.Service
         UninstallWinService,
         RunWinService,
         WinServiceStop,
-        RunConsole
+        RunConsole,
+        RunLinuxDaemon
     }
 }
