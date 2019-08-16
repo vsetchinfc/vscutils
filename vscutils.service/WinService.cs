@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Hosting;
 
-namespace VSC
+namespace VSC.Utils.Service
 {
     public class WinService : ServiceBase, IHostLifetime
     {
