@@ -6,6 +6,9 @@ namespace VSC.Utils
     {
         public static void SaveTextToFile(string text, string filePath)
         {
+            // if directory is missing, create it
+            Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+
             using(StreamWriter outFile = new StreamWriter(filePath))
             {
                 outFile.WriteLine(text);
