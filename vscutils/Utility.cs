@@ -9,7 +9,7 @@ namespace VSC.Utils
         {
             // if directory is missing, create it
             Directory.CreateDirectory(Path.GetDirectoryName(filePath));
-            
+
             using(StreamWriter outFile = new StreamWriter(filePath))
             {
                 outFile.WriteLine(text);
@@ -32,11 +32,5 @@ namespace VSC.Utils
 
             return text;
         }
-        
-        private static void FormatErrorMessage(StringBuilder builder, Exception exception, string indent = "")
-        {
-            
-        }
-        
     }
 }

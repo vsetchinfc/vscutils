@@ -3,7 +3,7 @@ using Xunit;
 
 using VSC.Utils;
 
-namespace VSC.Utils.Tests
+namespace VSC.Tests.Utils
 {
     public class EnumExtensionsTester
     {

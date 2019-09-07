@@ -2,7 +2,7 @@ using System;
 using VSC.Utils;
 using Xunit;
 
-namespace VSC.Utils.Service.Tests
+namespace VSC.Tests.Utils.Service
 {
     public class WinServiceInstallerTester
     {
