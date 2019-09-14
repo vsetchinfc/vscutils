@@ -46,7 +46,7 @@ namespace VSC.Utils.Service
 
         private static void RaiseWinServiceStatus(string status)
         {
-            if(WinServiceStatus != null)
+            if(WinServiceStatus is null is false)
             {
                 WinServiceStatus(status);
             }
