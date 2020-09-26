@@ -1,6 +1,5 @@
-using System;
 using System.IO;
-using System.Text;
+
 namespace VSC.Utils
 {
     public static class Utility
